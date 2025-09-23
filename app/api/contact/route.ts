@@ -4,8 +4,9 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY!);
-const EMAIL_FROM = process.env.EMAIL_FROM!; // Ej: "Portfolio <no-reply@tu-dominio.com>"
-const EMAIL_TO = process.env.EMAIL_TO!;     // Tu buzón de destino
+const EMAIL_FROM = process.env.EMAIL_FROM!;
+const EMAIL_TO = process.env.EMAIL_TO!;
+const MAX_MESSAGE_LENGTH = parseInt(process.env.MAX_MESSAGE_LENGTH || "5000", 10);
 
 type Payload = { name: string; email: string; message: string };
 
@@ -13,7 +14,7 @@ function isEmail(str: string) {
   return /^\S+@\S+\.\S+$/.test(str);
 }
 
-function clamp(str: string, max = 5000) {
+function clamp(str: string, max = MAX_MESSAGE_LENGTH) {
   return str.length > max ? str.slice(0, max) : str;
 }
 
@@ -26,39 +27,33 @@ export async function POST(req: Request) {
     const message = clamp((body.message ?? "").trim());
 
     // Validación mínima
-    if (!name || name.length < 2 || name.length > 100) {
+    if (!name || name.length < 2 || name.length > 100)
       return NextResponse.json({ ok: false, error: "Invalid name" }, { status: 400 });
-    }
-    if (!isEmail(email)) {
-      return NextResponse.json({ ok: false, error: "Invalid email" }, { status: 400 });
-    }
-    if (!message || message.length < 10) {
-      return NextResponse.json({ ok: false, error: "Message too short" }, { status: 400 });
-    }
 
-    // Asunto y contenidos
+    if (!isEmail(email))
+      return NextResponse.json({ ok: false, error: "Invalid email" }, { status: 400 });
+
+    if (!message || message.length < 10)
+      return NextResponse.json({ ok: false, error: "Message too short" }, { status: 400 });
+
     const subject = `New message from ${name}`;
     const text = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-    const html =
-      `<div style="font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial">
+    const html = `
+      <div style="font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial">
         <h2 style="margin:0 0 12px">New message from ${escapeHtml(name)}</h2>
         <p><b>Email:</b> ${escapeHtml(email)}</p>
         <p style="white-space:pre-wrap">${escapeHtml(message)}</p>
       </div>`;
 
-    const { error } = await resend.emails.send({
+    // Enviar correo
+    await resend.emails.send({
       from: EMAIL_FROM,
       to: EMAIL_TO,
-      reply_to: email, // para responder directamente al remitente
+      replyTo: email,
       subject,
       text,
       html,
     });
-
-    if (error) {
-      console.error("[RESEND_ERROR]", error);
-      return NextResponse.json({ ok: false, error: "Email provider error" }, { status: 502 });
-    }
 
     return NextResponse.json({ ok: true });
   } catch (e) {
@@ -67,7 +62,7 @@ export async function POST(req: Request) {
   }
 }
 
-// Pequeña utilidad para evitar inyectar HTML
+// Evita inyección de HTML
 function escapeHtml(s: string) {
   return s
     .replaceAll("&", "&amp;")
