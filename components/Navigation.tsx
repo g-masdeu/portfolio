@@ -14,7 +14,6 @@ const ITEMS = [
   { href: "#technologies", label: "Technologies" },
   { href: "#projects", label: "Projects" },
   { href: "#education", label: "Education" },
-  { href: "#more-about-me", label: "More about me" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -23,7 +22,7 @@ function Navigation() {
     <nav aria-label="Primary" className="w-full">
       <NavigationMenu
         viewport={false}
-        className="sticky top-4 z-50 mx-auto mt-6 rounded-full border bg-background/70 backdrop-blur px-2 shadow-lg supports-[backdrop-filter]:backdrop-blur"
+        className="sticky top-4 z-50 mx-auto rounded-full backdrop-blur px-2 supports-[backdrop-filter]:backdrop-blur"
       >
         <NavigationMenuList className="gap-1">
           {ITEMS.map((it) => (

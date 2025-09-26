@@ -24,8 +24,8 @@ const ALL_PROJECTS: Project[] = [
     title: "VideoClub Store",
     summary: "Proyecto para crear una página web de un Videclub",
     tech: ["Laravel", "Bootstrap", "PHP", "MySQL"],
-    image: "/laravel.png",
-    github: "https://github.com/g-masdeu/smart-garden",
+    image: "/projects/p1.png",
+    github: "https://github.com/g-masdeu/videoc-v0",
     year: 2025,
   },
   {
@@ -33,17 +33,17 @@ const ALL_PROJECTS: Project[] = [
     title: "Book Reviews",
     summary: "App social para que los usuarios puedan puntuar y dar reseñas a diferentes libros",
     tech: ["Laravel", "Bootstrap","PHP", "MySQL"],
-    image: "/laravel.png",
-    github: "https://github.com/usuario/edutrack",
+    image: "/projects/p2.png",
+    github: "https://github.com/g-masdeu/Llibres",
     year: 2025,
   },
   {
     id: "p3",
     title: "GPX Statics",
     summary: "App para mostrar datos a partir de un archivo .gpx. Ideal para entrenadores de runners, bikers y otros deportes",
-    tech: ["Flutter", "SQLite"],
-    image: "/flutter.png",
-    github: "https://github.com/usuario/vision-board",
+    tech: ["Flutter", "SQLite", ".dart"],
+    image: "/projects/p3.png",
+    github: "https://github.com/g-masdeu/GPXStatics",
     year: 2025,
   },
   {
@@ -51,8 +51,17 @@ const ALL_PROJECTS: Project[] = [
     title: "Buscaminas",
     summary: "Juego del buscaminas desarrollado puramente en JavaScript",
     tech: ["JavaScript"],
-    image: "/javascript.png",
-    github: "https://github.com/usuario/vision-board",
+    image: "/projects/p4.png",
+    github: "https://github.com/g-masdeu/Buscaminas",
+    year: 2025,
+  },
+  {
+    id: "p5",
+    title: "Portfolio",
+    summary: "Portafolio de mi cv como desarrollador",
+    tech: ["Next.js", "TypeScript", "JavaScript", "TailwindCSS" ],
+    image: "/nextjs.jpg",
+    github: "https://github.com/g-masdeu/videoc-v0", 
     year: 2025,
   },
 ];
@@ -98,7 +107,7 @@ export function ProjectsSection() {
             value={query}
             onChange={e => setQuery(e.target.value)}
             placeholder="Search by title, tech…"
-            className="w-64"
+            className="w-72 bg-white hover:shadow-amber-50 text-black"
             aria-label="Search projects"
           />
           <div className="inline-flex rounded-full border bg-background/70 p-1">

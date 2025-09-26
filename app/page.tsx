@@ -5,7 +5,6 @@ import ProjectsSection from "@/components/sections/ProjectSection";
 import AboutSection from "@/components/sections/AboutSection";
 import TechSection from "@/components/sections/TechSection";
 import EducationSection from "@/components/sections/EducationSection";
-import MoreAboutSection from "@/components/sections/MoreAboutSection";
 import ContactMeSection from "@/components/sections/ContactMeSection";
 
 export default function Home() {
@@ -13,7 +12,7 @@ export default function Home() {
   return (
     <div>
       <div id="top"></div>
-      <h1 className="text-center mt-8">Guillem Masdeu</h1>
+      <h1 className="text-center">Guillem Masdeu</h1>
       <div className="sticky top-0 z-50">
         <Navigation />      
       </div>
@@ -29,14 +28,9 @@ export default function Home() {
       <h2 id="projects" className="scroll-mt-28">Projects</h2>
       <ProjectsSection />
 
-
       <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent mt-5" />
       <h2 id="education" className="scroll-mt-28">Education</h2>
-      <EducationSection />
-
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent mt-5" />
-      <h2 id="more-about-me" className="scroll-mt-28">More about me</h2>
-      <MoreAboutSection />
+      {/* <EducationSection /> */}
 
       <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent mt-5" />
       <h2 id="contact" className="scroll-mt-28">Contact me</h2>

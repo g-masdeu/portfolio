@@ -57,7 +57,14 @@ body {
 
   background:
     radial-gradient(1200px 600px at 100% 0%, rgba(255,255,255,0.12), transparent 60%),
-    linear-gradient(135deg, #22d3ee 0%, #a78bfa 50%, #fb7185 100%);
+    linear-gradient(
+      135deg,
+      #00f5d4 0%,   /* Verde menta */
+      #3b82f6 25%,  /* Azul brillante */
+      #facc15 50%,  /* Amarillo vibrante */
+      #f472b6 75%,  /* Rosa coral */
+      #a78bfa 100%  /* Lavanda */
+    );
   color: aliceblue;
 }
 
@@ -79,7 +86,6 @@ h2 {
   font-size: 2rem;
   text-align: left;        
   margin-left: 0%;
-  margin-top: 5%;
 }
 
 .seccion {

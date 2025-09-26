@@ -74,6 +74,8 @@ export function ContactSection() {
                     placeholder="Your name"
                     aria-invalid={!!errors.name}
                     aria-describedby={errors.name ? "name-error" : undefined}
+                    className="w-72 bg-white hover:shadow-amber-50"
+
                   />
                   {errors.name && <p id="name-error" className="mt-1 text-xs text-destructive">{errors.name}</p>}
                 </div>
@@ -87,6 +89,8 @@ export function ContactSection() {
                     placeholder="you@email.com"
                     aria-invalid={!!errors.email}
                     aria-describedby={errors.email ? "email-error" : undefined}
+                    className="w-72 bg-white hover:shadow-amber-50"
+
                   />
                   {errors.email && <p id="email-error" className="mt-1 text-xs text-destructive">{errors.email}</p>}
                 </div>
@@ -99,7 +103,7 @@ export function ContactSection() {
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   placeholder="Tell me about your project…"
-                  className="min-h-32"
+                  className="min-h-32 w-72 bg-white hover:shadow-amber-50"
                   aria-invalid={!!errors.message}
                   aria-describedby={errors.message ? "message-error" : undefined}
                 />
@@ -107,7 +111,7 @@ export function ContactSection() {
               </div>
 
               <div className="flex items-center justify-between">
-                <Badge variant="secondary">Response within 24–48h</Badge>
+                <Badge variant="outline">Response within 24–48h</Badge>
                 <Button
                   type="submit"
                   disabled={status === "sending"}
@@ -134,7 +138,7 @@ export function ContactSection() {
           </CardHeader>
           <CardContent className="space-y-3 text-sm">
             <a
-              href="mailto:you@example.com"
+              href="mailto:guillem.masdeu97@gmail.com?subject=Propuesta&body=Hola Guillem, ..."
               className="group flex items-center gap-2 rounded-lg border p-3 hover:bg-accent hover:text-accent-foreground transition-colors"
             >
               <Mail className="size-4 opacity-70 group-hover:opacity-100" />

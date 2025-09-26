@@ -37,16 +37,16 @@ export default function FooterFullBleed({
           {/* Fila principal */}
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <nav aria-label="Footer" className="text-sm">
-              <ul className="flex flex-wrap items-center gap-3 md:gap-4">
-                {sections.map((s) => (
-                  <li key={s.href}>
-                    {s.href.startsWith("#") ? (
-                      <a href={s.href} className="hover:underline underline-offset-4">
-                        {s.label}
+              <ul className="flex gap-2">
+                {sections.map((item) => (
+                  <li key={item.href}>
+                    {item.href.startsWith("#") ? (
+                      <a href={item.href} className=" inline-flex items-center gap-2 rounded-full bg-black text-whtie border px-3 py-1 text-sm transition-colors hover:bg-accent hover:text-accent-foreground">
+                        {item.label}
                       </a>
                     ) : (
-                      <Link href={s.href} className="hover:underline underline-offset-4">
-                        {s.label}
+                      <Link href={item.href} className="w-25 mx-auto inline-flex items-center gap-2 rounded-full bg-black text-whtie border px-3 py-1 text-sm transition-colors hover:bg-accent hover:text-accent-foreground">
+                        {item.label}
                       </Link>
                     )}
                   </li>
@@ -57,7 +57,7 @@ export default function FooterFullBleed({
             <div className="flex flex-wrap items-center gap-2">
               <a
                 href={`mailto:${email}`}
-                className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+                className="inline-flex items-center gap-2 rounded-full bg-black text-whtie border px-3 py-1 text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
               >
                 <Mail className="size-4 opacity-80" />
                 {email}
@@ -66,7 +66,7 @@ export default function FooterFullBleed({
                 href={github}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+                className="inline-flex items-center gap-2 rounded-full bg-black text-whtie border px-3 py-1 text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
               >
                 <Github className="size-4 opacity-80" />
                 GitHub
@@ -75,7 +75,7 @@ export default function FooterFullBleed({
                 href={linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+                className="inline-flex items-center gap-2 rounded-full bg-black text-whtie border px-3 py-1 text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
               >
                 <Linkedin className="size-4 opacity-80" />
                 LinkedIn
@@ -83,7 +83,7 @@ export default function FooterFullBleed({
               <button
                 type="button"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+                className="inline-flex items-center gap-2 rounded-full bg-black text-whtie border px-3 py-1 text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
                 aria-label="Back to top"
                 title="Back to top"
               >
