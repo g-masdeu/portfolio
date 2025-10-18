@@ -20,6 +20,15 @@ type Project = {
 
 const ALL_PROJECTS: Project[] = [
   {
+    id: "p6",
+    title: "Quiz",
+    summary: "Juego de preguntas y respuestas",
+    tech: [".dart", "Flutter"],
+    image: "/quiz.png",
+    github: "https://github.com/g-masdeu/Quiz", 
+    year: 2025,
+  },
+  {
     id: "p1",
     title: "VideoClub Store",
     summary: "Proyecto para crear una página web de un Videclub",
@@ -62,15 +71,6 @@ const ALL_PROJECTS: Project[] = [
     tech: ["Next.js", "TypeScript", "JavaScript", "TailwindCSS" ],
     image: "/nextjs.jpg",
     github: "https://github.com/g-masdeu/VideoClub", 
-    year: 2025,
-  },
-    {
-    id: "p6",
-    title: "Quiz",
-    summary: "Juego de preguntas y respuestas",
-    tech: [".dart", "Flutter"],
-    image: "/quiz.png",
-    github: "https://github.com/g-masdeu/Quiz", 
     year: 2025,
   },
 ];
