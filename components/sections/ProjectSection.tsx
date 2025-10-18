@@ -43,7 +43,7 @@ const ALL_PROJECTS: Project[] = [
     summary: "My portfolio as a full-stack developer",
     tech: ["Next.js", "TypeScript", "JavaScript", "TailwindCSS" ],
     image: "/nextjs.jpg",
-    github: "https://github.com/g-masdeu/VideoClub", 
+    github: "https://github.com/g-masdeu/portfolio", 
     year: 2025,
   },
   {
