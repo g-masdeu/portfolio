@@ -54,7 +54,7 @@ export default function FooterFullBleed({
               </ul>
             </nav>
 
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2 text-left">
               <a href="mailto:guillem.masdeu97@gmail.com?subject=Propuesta&body=Hola Guillem, ..."                
                  className="inline-flex items-center gap-2 rounded-full bg-black text-whtie border px-3 py-1 text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
               >
