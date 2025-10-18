@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 🌐 Portafolio Personal — Guillem Masdeu
 
-## Getting Started
+¡Bienvenido a mi portafolio! 🎨
+Este proyecto está desarrollado para mostrar mis habilidades, proyectos y experiencia como desarrollador web.
+Puedes visitarlo aquí: https://portfolio-seven-theta-13.vercel.app/
 
-First, run the development server:
+## 🚀 Tecnologías utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Next.js / React → para la estructura y los componentes del sitio
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Tailwind CSS → para un diseño moderno, limpio y responsive
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Framer Motion → para animaciones suaves y profesionales
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Vercel → para el despliegue continuo e integración con GitHub
 
-## Learn More
+TypeScript → para un código más robusto y mantenible
 
-To learn more about Next.js, take a look at the following resources:
+## ✨ Características principales
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Diseño completamente responsive
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Animaciones interactivas con Framer Motion
 
-## Deploy on Vercel
+Sección de proyectos con enlaces a repositorios y demos
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Optimización SEO para mayor visibilidad
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Carga rápida gracias a la optimización de imágenes y renderizado dinámico
+
+## 🧩 Estructura general del proyecto
+
+El portafolio está organizado en componentes reutilizables (Navbar, Footer, etc.), páginas principales, recursos estáticos (imágenes e íconos) y estilos globales gestionados con Tailwind CSS.
+
+## 🧠 Objetivo del proyecto
+
+El objetivo principal de este portafolio es presentar de forma visual y profesional mis proyectos, conocimientos y experiencia como desarrollador web, además de ofrecer una manera sencilla de contacto para colaboraciones o empleo.
+
+## 📬 Contacto
+
+Si quieres ponerte en contacto conmigo o ver más de mi trabajo:
+
+📧 Email: guillem.masdeu97@gmail.com
+
+💼 LinkedIn: linkedin.com/in/guillem9masdeu
+
+🧠 GitHub: github.com/g-masdeu
+
+## 📄 Licencia
+
+Este proyecto es de uso personal y está bajo licencia MIT.
+Si te inspira, puedes usarlo como referencia para tu propio portafolio. 🚀
