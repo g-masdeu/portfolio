@@ -21,11 +21,11 @@ type Project = {
 const ALL_PROJECTS: Project[] = [
   {
     id: "p6",
-    title: "Quiz",
+    title: "Quiz Game",
     summary: "Juego de preguntas y respuestas",
     tech: [".dart", "Flutter"],
     image: "/quiz.png",
-    github: "https://github.com/g-masdeu/Quiz", 
+    github: "https://github.com/g-masdeu/QuizGame", 
     year: 2025,
   },
   {
@@ -35,6 +35,15 @@ const ALL_PROJECTS: Project[] = [
     tech: ["Laravel", "Bootstrap", "PHP", "MySQL"],
     image: "/projects/p1.png",
     github: "https://github.com/g-masdeu/VideoClub",
+    year: 2025,
+  },
+    {
+    id: "p5",
+    title: "Portfolio",
+    summary: "Portafolio de mi cv como desarrollador",
+    tech: ["Next.js", "TypeScript", "JavaScript", "TailwindCSS" ],
+    image: "/nextjs.jpg",
+    github: "https://github.com/g-masdeu/VideoClub", 
     year: 2025,
   },
   {
@@ -62,15 +71,6 @@ const ALL_PROJECTS: Project[] = [
     tech: ["JavaScript"],
     image: "/projects/p4.png",
     github: "https://github.com/g-masdeu/Buscaminas",
-    year: 2025,
-  },
-  {
-    id: "p5",
-    title: "Portfolio",
-    summary: "Portafolio de mi cv como desarrollador",
-    tech: ["Next.js", "TypeScript", "JavaScript", "TailwindCSS" ],
-    image: "/nextjs.jpg",
-    github: "https://github.com/g-masdeu/VideoClub", 
     year: 2025,
   },
 ];

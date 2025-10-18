@@ -13,7 +13,7 @@ export function AboutSection() {
         <CardContent className="p-4 sm:p-6">
           {/* Grid de 2 columnas en desktop */}
           <div className="grid gap-6 md:grid-cols-2 items-start">
-            
+
             {/* Columna izquierda: Foto + datos rápidos */}
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="relative h-60 w-40 shrink-0 overflow-hidden rounded-2xl ring-1 ring-border shadow-lg mx-auto sm:mx-0">
@@ -40,10 +40,15 @@ export function AboutSection() {
 
                 <p className="text-muted-foreground">Focus</p>
                 <div className="mt-1 flex flex-wrap gap-1">
-                  <Badge variant="secondary">Next.js</Badge>
+                  <Badge variant="secondary">NextJS</Badge>
                   <Badge variant="secondary">TypeScript</Badge>
                   <Badge variant="secondary">Laravel</Badge>
-                  <Badge variant="secondary">UI/UX</Badge>
+                  <Badge variant="secondary">PHP</Badge>
+                  <Badge variant="secondary">Flutter</Badge>
+                  <Badge variant="secondary">SpringBoot</Badge>
+                  <Badge variant="secondary">Java</Badge>
+                  <Badge variant="secondary">MySQL</Badge>
+                  <Badge variant="secondary">PostgreSQL</Badge>
                 </div>
               </div>
             </div>

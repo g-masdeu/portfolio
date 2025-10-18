@@ -19,10 +19,10 @@ export default function FooterFullBleed({
   linkedin = "https://www.linkedin.com/in/guillem9masdeu",
   sections = [
     { href: "#about-me", label: "About me" },
-    { href: "#technologies", label: "Technologies" },
     { href: "#projects", label: "Projects" },
-    { href: "#education", label: "Education" },
-    { href: "#more-about-me", label: "More" },
+    { href: "#technologies", label: "Technologies" },
+    // { href: "#education", label: "Education" },
+    // { href: "#more-about-me", label: "More" },
     { href: "#contact", label: "Contact" },
   ],
 }: Props) {

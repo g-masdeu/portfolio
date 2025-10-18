@@ -103,7 +103,7 @@ export function ContactSection() {
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   placeholder="Tell me about your project…"
-                  className="min-h-32 w-72 bg-white hover:shadow-amber-50"
+                  className="min-h-32 w-full bg-white hover:shadow-amber-50"
                   aria-invalid={!!errors.message}
                   aria-describedby={errors.message ? "message-error" : undefined}
                 />
