@@ -69,7 +69,7 @@ export function AboutSection() {
               <ul className="mt-3 grid grid-cols-3 gap-2 text-sm">
                 <li className="rounded-lg border p-2 text-center">
                   <p className="text-muted-foreground">Experience</p>
-                  <p className="font-medium">3+ yrs</p>
+                  <p className="font-medium">1+ yrs</p>
                 </li>
                 <li className="rounded-lg border p-2 text-center">
                   <p className="text-muted-foreground">Projects</p>
@@ -77,7 +77,7 @@ export function AboutSection() {
                 </li>
                 <li className="rounded-lg border p-2 text-center">
                   <p className="text-muted-foreground">Stack</p>
-                  <p className="font-medium">TS · React · PHP</p>
+                  <p className="font-medium">React · SpringBoot · Laravel</p>
                 </li>
               </ul>
 
