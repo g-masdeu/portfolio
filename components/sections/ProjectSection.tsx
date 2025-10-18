@@ -22,7 +22,7 @@ const ALL_PROJECTS: Project[] = [
   {
     id: "p6",
     title: "Quiz Game",
-    summary: "Juego de preguntas y respuestas",
+    summary: "Quiz Game thinked for android using Flutter, to work with multilanguage, effects and animations",
     tech: [".dart", "Flutter"],
     image: "/quiz.png",
     github: "https://github.com/g-masdeu/QuizGame", 
@@ -31,7 +31,7 @@ const ALL_PROJECTS: Project[] = [
   {
     id: "p1",
     title: "VideoClub Store",
-    summary: "Proyecto para crear una página web de un Videclub",
+    summary: "Project to work with Laravel CRUD MVC",
     tech: ["Laravel", "Bootstrap", "PHP", "MySQL"],
     image: "/projects/p1.png",
     github: "https://github.com/g-masdeu/VideoClub",
@@ -40,7 +40,7 @@ const ALL_PROJECTS: Project[] = [
     {
     id: "p5",
     title: "Portfolio",
-    summary: "Portafolio de mi cv como desarrollador",
+    summary: "My portfolio as a full-stack developer",
     tech: ["Next.js", "TypeScript", "JavaScript", "TailwindCSS" ],
     image: "/nextjs.jpg",
     github: "https://github.com/g-masdeu/VideoClub", 
@@ -49,7 +49,7 @@ const ALL_PROJECTS: Project[] = [
   {
     id: "p2",
     title: "Book Reviews",
-    summary: "App social para que los usuarios puedan puntuar y dar reseñas a diferentes libros",
+    summary: "Social app where users can read and write reviews of books. Designed to be a Laravel MVC CRUD",
     tech: ["Laravel", "Bootstrap","PHP", "MySQL"],
     image: "/projects/p2.png",
     github: "https://github.com/g-masdeu/Llibres",
@@ -58,7 +58,7 @@ const ALL_PROJECTS: Project[] = [
   {
     id: "p3",
     title: "GPX Statics",
-    summary: "App para mostrar datos a partir de un archivo .gpx. Ideal para entrenadores de runners, bikers y otros deportes",
+    summary: "App to work with .GPX files, where user can upload the file and it shows main statics and a map",
     tech: ["Flutter", "SQLite", ".dart"],
     image: "/projects/p3.png",
     github: "https://github.com/g-masdeu/GPXStatics",
@@ -67,7 +67,7 @@ const ALL_PROJECTS: Project[] = [
   {
     id: "p4",
     title: "Buscaminas",
-    summary: "Juego del buscaminas desarrollado puramente en JavaScript",
+    summary: "Minesweeper game done with JavaScript to learn how to work with DOM",
     tech: ["JavaScript"],
     image: "/projects/p4.png",
     github: "https://github.com/g-masdeu/Buscaminas",

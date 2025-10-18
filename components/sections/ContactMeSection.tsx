@@ -138,7 +138,7 @@ export function ContactSection() {
           </CardHeader>
           <CardContent className="space-y-3 text-sm">
             <a
-              href="mailto:guillem.masdeu97@gmail.com?subject=Propuesta&body=Hola Guillem, ..."
+              href="mailto:guillem.masdeu97@gmail.com?subject=Propuesta&body=Hello Guillem, ..."
               className="group flex items-center gap-2 rounded-lg border p-3 hover:bg-accent hover:text-accent-foreground transition-colors"
             >
               <Mail className="size-4 opacity-70 group-hover:opacity-100" />

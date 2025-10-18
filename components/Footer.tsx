@@ -55,9 +55,8 @@ export default function FooterFullBleed({
             </nav>
 
             <div className="flex flex-wrap items-center gap-2">
-              <a
-                href={`mailto:${email}`}
-                className="inline-flex items-center gap-2 rounded-full bg-black text-whtie border px-3 py-1 text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+              <a href="mailto:guillem.masdeu97@gmail.com?subject=Propuesta&body=Hola Guillem, ..."                
+                 className="inline-flex items-center gap-2 rounded-full bg-black text-whtie border px-3 py-1 text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
               >
                 <Mail className="size-4 opacity-80" />
                 {email}
