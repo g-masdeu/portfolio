@@ -21,16 +21,12 @@ export default function Home() {
       <AboutSection />
 
       <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent mt-5" />
-      <h2 id="technologies" className="scroll-mt-28">Languages & Technologies</h2>
-      <TechSection />
-
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent mt-5" />
       <h2 id="projects" className="scroll-mt-28">Projects</h2>
       <ProjectsSection />
 
       <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent mt-5" />
-      <h2 id="education" className="scroll-mt-28">Education</h2>
-      {/* <EducationSection /> */}
+      <h2 id="technologies" className="scroll-mt-28">Languages & Technologies</h2>
+      <TechSection />
 
       <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent mt-5" />
       <h2 id="contact" className="scroll-mt-28">Contact me</h2>
