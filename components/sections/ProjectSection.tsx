@@ -25,7 +25,7 @@ const ALL_PROJECTS: Project[] = [
     summary: "Proyecto para crear una página web de un Videclub",
     tech: ["Laravel", "Bootstrap", "PHP", "MySQL"],
     image: "/projects/p1.png",
-    github: "https://github.com/g-masdeu/videoc-v0",
+    github: "https://github.com/g-masdeu/VideoClub",
     year: 2025,
   },
   {
@@ -61,7 +61,16 @@ const ALL_PROJECTS: Project[] = [
     summary: "Portafolio de mi cv como desarrollador",
     tech: ["Next.js", "TypeScript", "JavaScript", "TailwindCSS" ],
     image: "/nextjs.jpg",
-    github: "https://github.com/g-masdeu/videoc-v0", 
+    github: "https://github.com/g-masdeu/VideoClub", 
+    year: 2025,
+  },
+    {
+    id: "p6",
+    title: "Quiz",
+    summary: "Juego de preguntas y respuestas",
+    tech: [".dart", "Flutter"],
+    image: "/quiz.png",
+    github: "https://github.com/g-masdeu/Quiz", 
     year: 2025,
   },
 ];
