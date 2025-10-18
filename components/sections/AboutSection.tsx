@@ -41,14 +41,13 @@ export function AboutSection() {
                 <p className="text-muted-foreground">Focus</p>
                 <div className="mt-1 flex flex-wrap gap-1">
                   <Badge variant="secondary">NextJS</Badge>
-                  <Badge variant="secondary">TypeScript</Badge>
                   <Badge variant="secondary">Laravel</Badge>
-                  <Badge variant="secondary">PHP</Badge>
                   <Badge variant="secondary">Flutter</Badge>
                   <Badge variant="secondary">SpringBoot</Badge>
-                  <Badge variant="secondary">Java</Badge>
-                  <Badge variant="secondary">MySQL</Badge>
-                  <Badge variant="secondary">PostgreSQL</Badge>
+                  <Badge variant="secondary">UI/UX</Badge>
+                  <Badge variant="secondary">APIRest</Badge>
+                  <Badge variant="secondary">Hexagonal</Badge>
+                  <Badge variant="secondary">Microservices</Badge>
                 </div>
               </div>
             </div>
@@ -57,12 +56,13 @@ export function AboutSection() {
             <div className="flex flex-col justify-between">
               <div>
                 <h3 id="about-title" className="text-lg font-semibold">
-                  Hi, I’m Guillem — I build clean, fast web apps.
+                  Hi, I’m Guillem — I build clean, fast apps.
                 </h3>
                 <p className="mt-2 text-sm text-muted-foreground">
                   I’m a developer focused on delivering accessible, performant interfaces and
                   maintainable backends. I enjoy translating product ideas into clear components,
-                  reusable patterns, and measurable impact.
+                  reusable patterns, and measurable impact. Focused on hexagonal programming and 
+                  microservices on suitable frameworks
                 </p>
               </div>
 
