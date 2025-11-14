@@ -20,7 +20,7 @@ function Navigation() {
     <nav aria-label="Primary" className="w-full">
       <NavigationMenu
         viewport={false}
-        className="sticky top-4 z-50 mx-auto rounded-full backdrop-blur px-2 supports-[backdrop-filter]:backdrop-blur"
+        className="sticky top-0 z-50 mx-auto px-2 rounded-full"
       >
         <NavigationMenuList className="gap-1">
           {ITEMS.map((it) => (
@@ -30,7 +30,7 @@ function Navigation() {
                   href={it.href}
                   className={navigationMenuTriggerStyle({
                     className:
-                      "rounded-full hover:shadow-sm transition-all text-foreground hover:text-accent-foreground focus-visible:ring-ring/50 focus-visible:ring-[3px] focus-visible:outline-1",
+                      "rounded-full text-foreground hover:text-accent-foreground hover:shadow-[0_0_10px_rgba(59,130,246,0.5)] transition-all focus-visible:ring-ring/50 focus-visible:ring-[3px] focus-visible:outline-1",
                   })}
                 >
                   {it.label}
