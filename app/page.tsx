@@ -8,29 +8,47 @@ import EducationSection from "@/components/sections/EducationSection";
 import ContactMeSection from "@/components/sections/ContactMeSection";
 
 export default function Home() {
-
   return (
     <div>
-      <div id="top"></div>
-      <h1 className="text-center">Guillem Masdeu</h1>
-      <div className="sticky top-0 z-50">
-        <Navigation />      
+      <div id="top" />
+
+      {/* NOMBRE */}
+      <h1>Guillem Masdeu</h1>
+
+      {/* NAVBAR debajo del nombre */}
+      <header className="sticky top-0 z-50">
+        <Navigation />
+      </header>
+
+      {/* ABOUT ME */}
+      <h2 id="about-me" className="scroll-mt-28">About me</h2>
+      <div className="seccion">
+        <AboutSection />
       </div>
 
-      <h2 id="about-me" className="scroll-mt-28">About me</h2>
-      <AboutSection />
+      <div className="divider" />
 
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent mt-5" />
+      {/* PROJECTS */}
       <h2 id="projects" className="scroll-mt-28">Projects</h2>
-      <ProjectsSection />
+      <div className="seccion">
+        <ProjectsSection />
+      </div>
 
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent mt-5" />
+      <div className="divider" />
+
+      {/* TECHNOLOGIES */}
       <h2 id="technologies" className="scroll-mt-28">Languages & Technologies</h2>
-      <TechSection />
+      <div className="seccion">
+        <TechSection />
+      </div>
 
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent mt-5" />
+      <div className="divider" />
+
+      {/* CONTACT */}
       <h2 id="contact" className="scroll-mt-28">Contact me</h2>
-      <ContactMeSection />
+      <div className="seccion">
+        <ContactMeSection />
+      </div>
     </div>
   )
 }
