@@ -30,7 +30,7 @@ function Navigation() {
                   href={it.href}
                   className={navigationMenuTriggerStyle({
                     className:
-                      "rounded-full text-foreground hover:text-accent-foreground hover:shadow-[0_0_10px_rgba(59,130,246,0.5)] transition-all focus-visible:ring-ring/50 focus-visible:ring-[3px] focus-visible:outline-1",
+                      "rounded-full text-foreground hover:text-accent-foreground] transition-all focus-visible:ring-ring/50 focus-visible:ring-[3px] focus-visible:outline-1",
                   })}
                 >
                   {it.label}
