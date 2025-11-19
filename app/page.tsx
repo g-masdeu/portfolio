@@ -6,6 +6,7 @@ import AboutSection from "@/components/sections/AboutSection";
 import TechSection from "@/components/sections/TechSection";
 import EducationSection from "@/components/sections/EducationSection";
 import ContactMeSection from "@/components/sections/ContactMeSection";
+import { Analytics } from "@vercel/analytics/next"
 
 export default function Home() {
   return (
