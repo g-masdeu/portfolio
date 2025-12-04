@@ -30,7 +30,7 @@ const translations = {
             ctaContact: "Contact me",
             ctaCV: "Download CV",
             years: "1+ yrs",
-            shipped: "10+ shipped",
+            shipped: "3+ shipped",
         },
         projects: {
             title: "Projects",
@@ -100,7 +100,7 @@ const translations = {
             ctaContact: "Contactar",
             ctaCV: "Descargar CV",
             years: "1+ años",
-            shipped: "10+ lanzados",
+            shipped: "3+ lanzados",
         },
         projects: {
             title: "Proyectos",
