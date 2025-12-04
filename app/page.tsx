@@ -6,7 +6,6 @@ import Navigation from "@/components/Navigation";
 import ProjectsSection from "@/components/sections/ProjectSection";
 import AboutSection from "@/components/sections/AboutSection";
 import TechSection from "@/components/sections/TechSection";
-import EducationSection from "@/components/sections/EducationSection";
 import ContactMeSection from "@/components/sections/ContactMeSection";
 
 // Creamos un componente interno para usar el hook 'useLanguage'
@@ -19,7 +18,11 @@ function HomeContent() {
       <LanguageToggle /> {/* Aquí va el botón de la bandera */}
 
       {/* NOMBRE */}
-      <h1>Guillem Masdeu</h1>
+      <div className="overflow-hidden py-4">
+        <h1 className="text-4xl md:text-6xl font-bold text-center mt-8 mb-4 animate-drop-bounce">
+          Guillem Masdeu
+        </h1>
+      </div>
 
       {/* NAVBAR */}
       <header className="sticky top-0 z-50">

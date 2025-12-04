@@ -122,3 +122,21 @@ body > div {
   width: 100%;
   padding-inline: 1rem;
 }
+
+/* ANIMACIÓN H1 */
+@keyframes dropBounce {
+  0% { transform: translateY(-200%); opacity: 0; }
+  30% { transform: translateY(0%); }     /* Cae al suelo */
+  45% { transform: translateY(-30%); }   /* Rebote alto */
+  60% { transform: translateY(0%); }     /* Cae */
+  75% { transform: translateY(-10%); }   /* Rebote medio */
+  85% { transform: translateY(0%); }     /* Cae */
+  95% { transform: translateY(-3%); }    /* Rebote pequeño */
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.animate-drop-bounce {
+  animation: 
+    dropBounce 1.2s cubic-bezier(0.28, 0.84, 0.42, 1) forwards, 
+    gradientText 5s ease infinite; 
+}
