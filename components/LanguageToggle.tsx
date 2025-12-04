@@ -7,12 +7,15 @@ export default function LanguageToggle() {
   const { language, toggleLanguage } = useLanguage();
 
   return (
-    <div className="fixed top-4 right-4 z-[100]">
+    // CLAVE: 'fixed' y 'animate-delayed-reveal' en el MISMO elemento.
+    // Al terminar la animación, el CSS global hace 'transform: none', 
+    // permitiendo que 'fixed' vuelva a funcionar con respecto a la ventana.
+    <div className="fixed top-4 right-4 z-[100] animate-delayed-reveal">
       <Button 
         variant="outline" 
         size="icon" 
         onClick={toggleLanguage}
-        // AÑADIDO: grayscale hover:grayscale-0 transition-all
+        // Incluimos tu efecto de grayscale + hover color
         className="rounded-full bg-background/80 backdrop-blur shadow-md hover:scale-105 border-2 grayscale hover:grayscale-0 transition-all duration-300"
         title={language === "en" ? "Switch to Spanish" : "Cambiar a Inglés"}
       >

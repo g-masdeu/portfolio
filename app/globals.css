@@ -1,7 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* GLOBAL STYLES */
+/* =========================================
+   1. ESTILOS GLOBALES
+   ========================================= */
 html {
   scroll-behavior: smooth;
 }
@@ -12,65 +14,128 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #0a0a0a; /* Main color negro */
+  background-color: #0a0a0a;
   color: #f5f5f5;
   font-family: var(--font-sans);
+  overflow-x: hidden; /* CRUCIAL: Evita barras de scroll lateral durante la animación de rebote */
 }
 
-/* HEADER NAME */
-h1 {
-  margin: 5% 0 1rem 0;
-  font-size: 4rem;
-  text-align: center;
-  font-weight: bold;
-  background: linear-gradient(90deg, #3b82f6, #f472b6, #facc15, #34d399);
-  background-size: 300% 300%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientText 5s ease infinite;
-}
+/* =========================================
+   2. KEYFRAMES DE ANIMACIÓN
+   ========================================= */
 
+/* --- A. COLORES DEL TEXTO (Bucle infinito) --- */
 @keyframes gradientText {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
+/* --- B. INTRO PIXAR (Caída + Rebote Elástico + Subida) --- */
+/* Nota: Usamos scale(X, Y) para simular que el texto se aplasta y estira */
+@keyframes pixarIntro {
+  /* FASE 1: CAÍDA */
+  0% { transform: translateY(-150vh) scale(0.5); opacity: 0; animation-timing-function: ease-in; }
+  10% { transform: translateY(-80vh) scale(0.75); opacity: 0.5; animation-timing-function: ease-in; }
+  
+  /* IMPACTO 1: Se estira antes de tocar suelo */
+  18% { transform: translateY(33vh) scale(1.15, 1.85); opacity: 1; animation-timing-function: linear; }
+  
+  /* APLASTAMIENTO MÁXIMO */
+  22% { transform: translateY(35vh) scale(1.9, 1.1); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+  
+  /* REBOTE 1 (Alto) */
+  28% { transform: translateY(30vh) scale(1.2, 1.8); animation-timing-function: ease-out; }
+  36% { transform: translateY(18vh) scale(1.35, 1.65); animation-timing-function: ease-in; }
+  
+  /* IMPACTO 2 */
+  44% { transform: translateY(35vh) scale(1.75, 1.25); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+  
+  /* REBOTE 2 (Medio) */
+  56% { transform: translateY(26vh) scale(1.4, 1.6); animation-timing-function: ease-in; }
+  
+  /* IMPACTO 3 */
+  62% { transform: translateY(35vh) scale(1.65, 1.35); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+  
+  /* ESTABILIZACIÓN EN EL CENTRO (Pausa para leer) */
+  82% { transform: translateY(35vh) scale(1.5, 1.5); animation-timing-function: ease-in-out; }
+  88% { transform: translateY(35vh) scale(1.5, 1.5); }
+  
+  /* FASE FINAL: SUBIDA (Anticipación y despegue) */
+  90% { transform: translateY(36vh) scale(1.55, 1.45); animation-timing-function: ease-in; } /* Se agacha */
+  93% { transform: translateY(25vh) scale(1.35, 1.65); animation-timing-function: ease-out; } /* Salta */
+  
+  /* POSICIÓN FINAL */
+  100% { transform: translateY(0) scale(1, 1); animation-timing-function: ease-out; }
+}
 
-/* NAVBAR UNDER NAME */
+/* --- C. APARICIÓN DEL CONTENIDO (Reveal) --- */
+@keyframes contentReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(60px); /* Aparece desde abajo */
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: none; /* IMPRESCINDIBLE: Elimina la transformación para que 'fixed' y 'sticky' funcionen */
+    filter: blur(0);
+  }
+}
+
+/* =========================================
+   3. CLASES UTILITARIAS (Para usar en React)
+   ========================================= */
+
+/* Aplica al H1 */
+.animate-pixar {
+  animation: 
+    pixarIntro 3.5s forwards, /* La coreografía física */
+    gradientText 5s ease infinite; /* Los colores */
+  
+  will-change: transform, opacity; /* Optimización navegador */
+  position: relative;
+  z-index: 50;
+}
+
+/* Aplica al resto (Navbar, Botón idioma, Secciones) */
+.animate-delayed-reveal {
+  opacity: 0; /* Empieza invisible */
+  animation: contentReveal 1.2s ease-out forwards;
+  animation-delay: 3.0s; /* Espera a que el título termine de rebotar */
+}
+
+/* =========================================
+   4. ESTILOS DE COMPONENTES
+   ========================================= */
+
+h1 {
+  margin: 1rem 0;
+  font-size: 4rem;
+  text-align: center;
+  font-weight: bold;
+  background: linear-gradient(90deg, #3b82f6, #f472b6, #facc15, #34d399);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Navbar Sticky */
 header, .sticky {
   position: sticky;
   top: 0;
   width: 100%;
-  z-index: 50;
+  z-index: 40;
   background: transparent;
-  border-bottom: none;
   transition: all 0.3s ease-in-out;
 }
 
-header:hover, .sticky:hover {
+header:hover {
   transform: scale(1.01);
 }
 
-header:hover, .sticky:hover {
-  background: transparent;
-  transform: scale(1.02);
-}
-
-/* Gradient animado opcional */
-.sticky {
-  background: linear-gradient(90deg, #1f1f1f, #2c2c2c, #1f1f1f);
-  background-size: 200% 200%;
-  animation: gradientMove 8s ease infinite;
-}
-
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* SECTIONS */
+/* Secciones */
 .seccion {
   border-radius: 1.25rem;
   margin: 1rem 0;
@@ -78,65 +143,33 @@ header:hover, .sticky:hover {
   max-width: 1100px;
   padding: 1rem;
   background: #1a1a1a;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .seccion:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
 }
 
-/* SUBHEADINGS */
 h2 {
   margin: 2rem 0 1rem 0;
   font-size: 2rem;
   color: #f5f5f5;
+  text-align: center;
 }
 
-/* DIVIDER */
 .divider {
   height: 1px;
   width: 100%;
-  background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+  max-width: 1100px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
   margin: 2rem 0;
 }
 
-/* TEXT & LINKS */
-p {
-  color: #dcdcdc;
-}
-
-a {
-  color: #3b82f6;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: #60a5fa;
-}
-
-/* BODY CONTAINER */
 body > div {
-  max-width: 1100px;
   width: 100%;
-  padding-inline: 1rem;
-}
-
-/* ANIMACIÓN H1 */
-@keyframes dropBounce {
-  0% { transform: translateY(-200%); opacity: 0; }
-  30% { transform: translateY(0%); }     /* Cae al suelo */
-  45% { transform: translateY(-30%); }   /* Rebote alto */
-  60% { transform: translateY(0%); }     /* Cae */
-  75% { transform: translateY(-10%); }   /* Rebote medio */
-  85% { transform: translateY(0%); }     /* Cae */
-  95% { transform: translateY(-3%); }    /* Rebote pequeño */
-  100% { transform: translateY(0); opacity: 1; }
-}
-
-.animate-drop-bounce {
-  animation: 
-    dropBounce 1.2s cubic-bezier(0.28, 0.84, 0.42, 1) forwards, 
-    gradientText 5s ease infinite; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
