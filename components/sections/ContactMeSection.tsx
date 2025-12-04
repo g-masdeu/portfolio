@@ -6,19 +6,24 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
 import { Mail, Github, Linkedin } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext"; // <--- Importamos
 
-export function ContactSection() {
+export function ContactMeSection() {
+  const { t, language } = useLanguage(); // <--- Obtenemos textos e idioma actual
   const [form, setForm] = useState({ name: "", email: "", message: "", honeypot: "" });
   const [errors, setErrors] = useState<{name?: string; email?: string; message?: string}>({});
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const validate = () => {
     const e: typeof errors = {};
-    if (!form.name.trim()) e.name = "Name is required";
-    if (!/^\S+@\S+\.\S+$/.test(form.email)) e.email = "Valid email required";
-    if (form.message.trim().length < 10) e.message = "Message should be at least 10 chars";
+    const isEn = language === "en";
+
+    // Validaciones simples con traducción manual
+    if (!form.name.trim()) e.name = isEn ? "Name is required" : "El nombre es obligatorio";
+    if (!/^\S+@\S+\.\S+$/.test(form.email)) e.email = isEn ? "Valid email required" : "Email válido requerido";
+    if (form.message.trim().length < 10) e.message = isEn ? "Message should be at least 10 chars" : "El mensaje debe tener al menos 10 caracteres";
+    
     setErrors(e);
     return Object.keys(e).length === 0;
   };
@@ -48,7 +53,7 @@ export function ContactSection() {
         {/* Formulario */}
         <Card className="lg:col-span-2 border bg-card/70 backdrop-blur supports-[backdrop-filter]:backdrop-blur">
           <CardHeader className="pb-2">
-            <CardTitle className="text-base">Send me a message</CardTitle>
+            <CardTitle className="text-base">{t.contact.formTitle}</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={onSubmit} className="space-y-4">
@@ -66,43 +71,41 @@ export function ContactSection() {
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="name" className="block text-sm text-muted-foreground">Name</label>
+                  <label htmlFor="name" className="block text-sm text-muted-foreground">{t.contact.name}</label>
                   <Input
                     id="name"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    placeholder="Your name"
+                    placeholder={t.contact.namePlaceholder}
                     aria-invalid={!!errors.name}
                     aria-describedby={errors.name ? "name-error" : undefined}
-                    className="w-72 bg-white hover:shadow-amber-50"
-
+                    className="w-full bg-white hover:shadow-amber-50"
                   />
                   {errors.name && <p id="name-error" className="mt-1 text-xs text-destructive">{errors.name}</p>}
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm text-muted-foreground">Email</label>
+                  <label htmlFor="email" className="block text-sm text-muted-foreground">{t.contact.email}</label>
                   <Input
                     id="email"
                     type="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    placeholder="you@email.com"
+                    placeholder={t.contact.emailPlaceholder}
                     aria-invalid={!!errors.email}
                     aria-describedby={errors.email ? "email-error" : undefined}
-                    className="w-72 bg-white hover:shadow-amber-50"
-
+                    className="w-full bg-white hover:shadow-amber-50"
                   />
                   {errors.email && <p id="email-error" className="mt-1 text-xs text-destructive">{errors.email}</p>}
                 </div>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm text-muted-foreground">Message</label>
+                <label htmlFor="message" className="block text-sm text-muted-foreground">{t.contact.message}</label>
                 <Textarea
                   id="message"
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  placeholder="Tell me about your project…"
+                  placeholder={t.contact.messagePlaceholder}
                   className="min-h-32 w-full bg-white hover:shadow-amber-50"
                   aria-invalid={!!errors.message}
                   aria-describedby={errors.message ? "message-error" : undefined}
@@ -111,21 +114,21 @@ export function ContactSection() {
               </div>
 
               <div className="flex items-center justify-between">
-                <Badge variant="outline">Response within 24–48h</Badge>
+                <Badge variant="outline">{t.contact.response}</Badge>
                 <Button
                   type="submit"
                   disabled={status === "sending"}
                   className="rounded-full"
                 >
-                  {status === "sending" ? "Sending…" : "Send"}
+                  {status === "sending" ? t.contact.sending : t.contact.send}
                 </Button>
               </div>
 
               {status === "sent" && (
-                <p className="text-sm text-green-600 dark:text-green-400">Thanks! Your message has been sent.</p>
+                <p className="text-sm text-green-600 dark:text-green-400">{t.contact.sent}</p>
               )}
               {status === "error" && (
-                <p className="text-sm text-destructive">Something went wrong. Please try again later.</p>
+                <p className="text-sm text-destructive">{t.contact.error}</p>
               )}
             </form>
           </CardContent>
@@ -134,7 +137,7 @@ export function ContactSection() {
         {/* Datos de contacto / redes */}
         <Card className="border bg-card/70 backdrop-blur">
           <CardHeader className="pb-2">
-            <CardTitle className="text-base">Direct contact</CardTitle>
+            <CardTitle className="text-base">{t.contact.direct}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3 text-sm">
             <a
@@ -161,7 +164,7 @@ export function ContactSection() {
               linkedin.com/in/guillem9masdeu
             </a>
             <p className="text-xs text-muted-foreground">
-              Prefer email for proposals. Include scope, timeline and links if possible.
+              {t.contact.note}
             </p>
           </CardContent>
         </Card>
@@ -170,4 +173,4 @@ export function ContactSection() {
   );
 }
 
-export default ContactSection;
+export default ContactMeSection;

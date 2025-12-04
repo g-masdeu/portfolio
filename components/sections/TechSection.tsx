@@ -4,26 +4,24 @@ import { useMemo, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext"; // <--- Importamos el hook
+
+// Definimos las claves de categoría estáticas (sin traducir aquí)
+const CATEGORY_KEYS = ["technologies", "databases", "tooling", "testing", "design"] as const;
+
+type CategoryKey = typeof CATEGORY_KEYS[number];
 
 type Skill = {
   name: string;
   tags?: string[];
-  category: keyof typeof CATEGORIES;
+  category: CategoryKey;
 };
 
-const CATEGORIES = {
-  technologies: "Technologies",
-  databases: "Databases",
-  tooling: "Tooling & DevOps",
-  testing: "Testing",
-  design: "Design & UX",
-} as const;
-
+// Los nombres de las tecnologías (React, Docker, etc.) no suelen traducirse
 const SKILLS: Skill[] = [
-  // Languages
+  // Languages & Frameworks
   { name: "TypeScript", category: "technologies", tags: ["TS", "types"] },
   { name: "JavaScript", category: "technologies", tags: ["ES202x"] },
   { name: "PHP", category: "technologies", tags: ["languages", "web"] },
@@ -36,9 +34,9 @@ const SKILLS: Skill[] = [
   { name: "Flutter", category: "technologies", tags:["web", "windows", "mac", "mobile", "app", "frontend"] },
   { name: "Dart", category: "technologies", tags:["web", "windows", "mac", "mobile", "app", "frontend"] },
   { name: "Laravel", category: "technologies", tags:["monolithic", "frontend", "backend", "PHP"] },
-  { name: "Node.js", category: "technologies", tags:["languages", "frontend", "backend", "luxury"] },
+  { name: "Node.js", category: "technologies", tags:["languages", "frontend", "backend"] },
   { name: "Spring Boot", category: "technologies", tags:["web", "API", "APIREST", "backend"] },
-  { name: "Bootstrap", category: "technologies", tags:["styles", "style", "shit"] },
+  { name: "Bootstrap", category: "technologies", tags:["styles", "style"] },
 
   // Databases
   { name: "MySQL", category: "databases" }, 
@@ -57,11 +55,10 @@ const SKILLS: Skill[] = [
   { name: "PHPUnit", category: "testing" },
 ];
 
-const CATEGORY_KEYS = Object.keys(CATEGORIES) as Array<keyof typeof CATEGORIES>;
-
 export function TechSection() {
+  const { t } = useLanguage(); // <--- Usamos el hook para textos
   const [query, setQuery] = useState("");
-  const [category, setCategory] = useState<keyof typeof CATEGORIES | "all">("all");
+  const [category, setCategory] = useState<CategoryKey | "all">("all");
   const [sort, setSort] = useState<"level" | "alpha">("level");
 
   const filtered = useMemo(() => {
@@ -94,7 +91,7 @@ export function TechSection() {
           <Input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search tech, e.g. React, Docker…"
+            placeholder={t.tech.searchPlaceholder} // <--- Texto traducido
             className="w-72 bg-white hover:shadow-amber-50 text-black"
             aria-label="Search technologies"
           />
@@ -123,7 +120,8 @@ export function TechSection() {
             className={cn("cursor-pointer select-none", category === "all" && "bg-white text-black")}
             onClick={() => setCategory("all")}
           >
-            All
+            {/* Aquí podrías usar t.tech.categories.all si lo añades al contexto, o dejarlo fijo si "All" es universal */}
+            All 
           </Badge>
           {CATEGORY_KEYS.map((k) => (
             <Badge
@@ -132,7 +130,7 @@ export function TechSection() {
               className={cn("cursor-pointer select-none", category === k && "bg-white text-black")}
               onClick={() => setCategory(k)}
             >
-              {CATEGORIES[k]}
+              {t.tech.categories[k]} {/* <--- Texto traducido dinámicamente */}
             </Badge>
           ))}
         </div>
@@ -146,7 +144,7 @@ export function TechSection() {
           return (
             <Card key={k} className="border bg-card/70 backdrop-blur">
               <CardHeader className="pb-2">
-                <CardTitle className="text-base">{CATEGORIES[k]}</CardTitle>
+                <CardTitle className="text-base">{t.tech.categories[k]}</CardTitle> {/* <--- Título categoría */}
               </CardHeader>
               <CardContent className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {items.map((s) => (
@@ -168,7 +166,7 @@ export function TechSection() {
       {/* Estado vacío */}
       {filtered.length === 0 && (
         <div className="mt-8 rounded-xl border bg-background/70 p-6 text-center text-sm text-muted-foreground">
-          No technologies found. Try another term or category.
+          {t.tech.notFound} {/* <--- Texto traducido */}
         </div>
       )}
     </section>
