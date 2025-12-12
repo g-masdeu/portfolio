@@ -56,7 +56,7 @@ const SKILLS: Skill[] = [
 ];
 
 export function TechSection() {
-  const { t } = useLanguage(); // <--- Usamos el hook para textos
+  const { t } = useLanguage(); 
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<CategoryKey | "all">("all");
   const [sort, setSort] = useState<"level" | "alpha">("level");
@@ -91,7 +91,7 @@ export function TechSection() {
           <Input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder={t.tech.searchPlaceholder} // <--- Texto traducido
+            placeholder={t.tech.searchPlaceholder} 
             className="w-72 bg-white hover:shadow-amber-50 text-black"
             aria-label="Search technologies"
           />

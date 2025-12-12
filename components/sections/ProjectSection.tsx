@@ -20,7 +20,6 @@ type Project = {
   link?: string;  
 };
 
-// Función que devuelve los proyectos con los textos traducidos según el idioma
 const getProjects = (lang: "en" | "es"): Project[] => {
   const isEn = lang === "en";
 
@@ -121,8 +120,6 @@ const getProjects = (lang: "en" | "es"): Project[] => {
 
 export function ProjectsSection() {
   const { language, t } = useLanguage();
-
-  // Obtenemos los proyectos traducidos cada vez que cambie el idioma
   const projectsData = getProjects(language);
 
   // Extraemos todas las tecnologías para los filtros
@@ -174,7 +171,11 @@ export function ProjectsSection() {
             <Button
               size="sm"
               variant={sort === "recent" ? "default" : "ghost"}
-              className={cn("rounded-full", sort === "recent" && "bg-primary text-primary-foreground")}
+              className={cn(
+                "rounded-full", 
+                // Estilo actualizado para coincidir con TechSection
+                sort === "recent" ? "bg-white text-black hover:bg-white/90" : "text-muted-foreground"
+              )}
               onClick={() => setSort("recent")}
             >
               {t.projects.recent}
@@ -182,7 +183,11 @@ export function ProjectsSection() {
             <Button
               size="sm"
               variant={sort === "alpha" ? "default" : "ghost"}
-              className={cn("rounded-full", sort === "alpha" && "bg-primary text-primary-foreground")}
+              className={cn(
+                "rounded-full", 
+                // Estilo actualizado para coincidir con TechSection
+                sort === "alpha" ? "bg-white text-black hover:bg-white/90" : "text-muted-foreground"
+              )}
               onClick={() => setSort("alpha")}
             >
               {t.projects.alpha}
@@ -194,7 +199,11 @@ export function ProjectsSection() {
         <div className="flex flex-wrap items-center gap-2">
           <Badge
             variant={activeTags.length === 0 ? "default" : "outline"}
-            className={cn("cursor-pointer select-none", activeTags.length === 0 && "bg-primary text-primary-foreground")}
+            className={cn(
+              "cursor-pointer select-none", 
+              // Estilo actualizado para coincidir con TechSection
+              activeTags.length === 0 && "bg-white text-black hover:bg-white/90"
+            )}
             onClick={() => setActiveTags([])}
           >
             {t.projects.all}
@@ -205,7 +214,8 @@ export function ProjectsSection() {
               variant={activeTags.includes(t) ? "default" : "outline"}
               className={cn(
                 "cursor-pointer select-none",
-                activeTags.includes(t) && "bg-primary text-primary-foreground"
+                // Estilo actualizado para coincidir con TechSection
+                activeTags.includes(t) && "bg-white text-black hover:bg-white/90"
               )}
               onClick={() => toggleTag(t)}
             >
@@ -245,8 +255,15 @@ export function ProjectsSection() {
                 {p.tech.map(t => (
                   <Badge
                     key={t}
+                    // Utilizamos variant outline por defecto o default si está activo
                     variant={activeTags.includes(t) ? "default" : "secondary"}
-                    className="cursor-pointer"
+                    className={cn(
+                      "cursor-pointer transition-colors",
+                      // Estilo activo: blanco con texto negro (TechSection style)
+                      activeTags.includes(t) 
+                        ? "bg-white text-black hover:bg-white/90" 
+                        : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                    )}
                     onClick={() => toggleTag(t)}
                   >
                     {t}
