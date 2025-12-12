@@ -79,7 +79,7 @@ export function ContactMeSection() {
                     placeholder={t.contact.namePlaceholder}
                     aria-invalid={!!errors.name}
                     aria-describedby={errors.name ? "name-error" : undefined}
-                    className="w-full bg-white hover:shadow-amber-50"
+                    className="w-full bg-white hover:shadow-amber-50 placeholder-gray-400 text-black"
                   />
                   {errors.name && <p id="name-error" className="mt-1 text-xs text-destructive">{errors.name}</p>}
                 </div>
@@ -93,7 +93,7 @@ export function ContactMeSection() {
                     placeholder={t.contact.emailPlaceholder}
                     aria-invalid={!!errors.email}
                     aria-describedby={errors.email ? "email-error" : undefined}
-                    className="w-full bg-white hover:shadow-amber-50"
+                    className="w-full bg-white hover:shadow-amber-50 placeholder-gray-400 text-black"
                   />
                   {errors.email && <p id="email-error" className="mt-1 text-xs text-destructive">{errors.email}</p>}
                 </div>
@@ -106,7 +106,7 @@ export function ContactMeSection() {
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   placeholder={t.contact.messagePlaceholder}
-                  className="min-h-32 w-full bg-white hover:shadow-amber-50"
+                  className="min-h-32 w-full bg-white hover:shadow-amber-50 placeholder-gray-400 text-black"
                   aria-invalid={!!errors.message}
                   aria-describedby={errors.message ? "message-error" : undefined}
                 />
@@ -114,11 +114,11 @@ export function ContactMeSection() {
               </div>
 
               <div className="flex items-center justify-between">
-                <Badge variant="outline">{t.contact.response}</Badge>
+                <Badge>{t.contact.response}</Badge>
                 <Button
                   type="submit"
                   disabled={status === "sending"}
-                  className="rounded-full"
+                  className="rounded-full hover:bg-gray-800 border-2"
                 >
                   {status === "sending" ? t.contact.sending : t.contact.send}
                 </Button>
