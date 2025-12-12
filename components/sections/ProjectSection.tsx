@@ -26,6 +26,18 @@ const getProjects = (lang: "en" | "es"): Project[] => {
 
   return [
     {
+      id: "p8",
+      title: "Penalty Game",
+      summary: isEn
+        ? "Online web game to shoot and save football penalties against another player."
+        : "Juego web online para chutar y parar penaltis de fútbol contra otro jugador.",
+      tech: ["React", "NodeJS"],
+      image: "/projects/p8.png",
+      github: "https://github.com/asogomez22/DevChallenge3",
+      link: "https://juego-penaltis-web.onrender.com/",
+      year: 2025,
+    },
+    {
       id: "p7",
       title: "To Do List",
       summary: isEn
