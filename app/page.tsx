@@ -38,7 +38,7 @@ export default function Home() {
          Tiene su propia animación de entrada (delayed). 
          Está fuera de <main> para garantizar que 'sticky' funcione.
       */}
-      <header className="sticky top-0 z-40 mb-8 w-full flex justify-center animate-delayed-reveal">
+      <header className="sticky top-0 z-40 mb-8 w-full flex justify-center animate-delayed-reveal bg-black">
         <Navigation />
       </header>
 
