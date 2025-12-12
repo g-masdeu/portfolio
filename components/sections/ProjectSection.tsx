@@ -17,7 +17,7 @@ type Project = {
   image?: string;
   github?: string;
   year?: number;
-  link?: string;
+  link?: string;  
 };
 
 // Función que devuelve los proyectos con los textos traducidos según el idioma
