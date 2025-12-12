@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen w-full flex flex-col items-center">
-      
+
       {/* Ancla invisible para volver arriba */}
       <div id="top" />
 
@@ -38,7 +38,7 @@ export default function Home() {
          Tiene su propia animación de entrada (delayed). 
          Está fuera de <main> para garantizar que 'sticky' funcione.
       */}
-      <header className="sticky top-0 z-40 mb-8 w-full flex justify-center animate-delayed-reveal bg-black">
+      <header className="sticky top-0 z-40 mb-8 w-full flex justify-center animate-delayed-reveal backdrop-blur-lg bg-white/30 border-b border-white/20">
         <Navigation />
       </header>
 
@@ -47,15 +47,15 @@ export default function Home() {
          Todo esto aparece suavemente después de que el título sube.
       */}
       <main className="animate-delayed-reveal w-full flex flex-col items-center pb-20">
-        
+
         <div className="w-full max-w-[1100px] px-4 space-y-12">
-          
+
           {/* SECCIÓN: SOBRE MÍ */}
           <div>
-             <h2 id="about-me" className="scroll-mt-28">{t.about.title}</h2>
-             <div className="seccion">
-               <AboutSection />
-             </div>
+            <h2 id="about-me" className="scroll-mt-28">{t.about.title}</h2>
+            <div className="seccion">
+              <AboutSection />
+            </div>
           </div>
 
           <div className="divider" />
@@ -87,7 +87,7 @@ export default function Home() {
               <ContactMeSection />
             </div>
           </div>
-          
+
         </div>
       </main>
     </div>
