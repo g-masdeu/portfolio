@@ -114,6 +114,7 @@ const getProjects = (lang: "en" | "es"): Project[] => {
       image: "/projects/p4.png",
       github: "https://github.com/g-masdeu/Buscaminas",
       year: 2025,
+      link: "http://213.199.55.138/",
     },
   ];
 };
