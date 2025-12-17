@@ -17,7 +17,7 @@ type Project = {
   image?: string;
   github?: string;
   year?: number;
-  link?: string;  
+  link?: string;
 };
 
 const getProjects = (lang: "en" | "es"): Project[] => {
@@ -173,7 +173,7 @@ export function ProjectsSection() {
               size="sm"
               variant={sort === "recent" ? "default" : "ghost"}
               className={cn(
-                "rounded-full", 
+                "rounded-full",
                 // Estilo actualizado para coincidir con TechSection
                 sort === "recent" ? "bg-white text-black hover:bg-white/90" : "text-muted-foreground"
               )}
@@ -185,7 +185,7 @@ export function ProjectsSection() {
               size="sm"
               variant={sort === "alpha" ? "default" : "ghost"}
               className={cn(
-                "rounded-full", 
+                "rounded-full",
                 // Estilo actualizado para coincidir con TechSection
                 sort === "alpha" ? "bg-white text-black hover:bg-white/90" : "text-muted-foreground"
               )}
@@ -201,7 +201,7 @@ export function ProjectsSection() {
           <Badge
             variant={activeTags.length === 0 ? "default" : "outline"}
             className={cn(
-              "cursor-pointer select-none", 
+              "cursor-pointer select-none",
               // Estilo actualizado para coincidir con TechSection
               activeTags.length === 0 && "bg-white text-black hover:bg-white/90"
             )}
@@ -261,8 +261,8 @@ export function ProjectsSection() {
                     className={cn(
                       "cursor-pointer transition-colors",
                       // Estilo activo: blanco con texto negro (TechSection style)
-                      activeTags.includes(t) 
-                        ? "bg-white text-black hover:bg-white/90" 
+                      activeTags.includes(t)
+                        ? "bg-white text-black hover:bg-white/90"
                         : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                     )}
                     onClick={() => toggleTag(t)}
@@ -280,6 +280,8 @@ export function ProjectsSection() {
                     href={p.link}
                     target="_blank"
                     rel="noreferrer"
+                    title={p.title}
+                    aria-label={p.title}
                     className="relative text-muted-foreground transition hover:text-primary 
                    before:absolute before:left-0 before:bottom-0 before:h-[2px] before:w-0 
                    before:bg-primary before:transition-all before:duration-300 
@@ -297,6 +299,8 @@ export function ProjectsSection() {
                     href={p.github}
                     target="_blank"
                     rel="noreferrer"
+                    title={p.title}
+                    aria-label={p.title}
                     className="relative text-muted-foreground transition hover:text-primary 
                    after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 
                    after:h-8 after:w-0 after:bg-primary/20 after:skew-x-12 after:transition-all 
