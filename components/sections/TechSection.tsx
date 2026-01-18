@@ -25,21 +25,22 @@ const SKILLS: Skill[] = [
   { name: "TypeScript", category: "technologies", tags: ["TS", "types"] },
   { name: "JavaScript", category: "technologies", tags: ["ES202x"] },
   { name: "PHP", category: "technologies", tags: ["languages", "web"] },
-  { name: "Java", category: "technologies", tags:["languages", "backend"] },
-  { name: "HTML5", category: "technologies",  tags:["web"]},
+  { name: "Java", category: "technologies", tags: ["languages", "backend"] },
+  { name: "HTML5", category: "technologies", tags: ["web"] },
   { name: "CSS3", category: "technologies", tags: ["Flex", "Grid"] },
   { name: "React", category: "technologies", tags: ["Hooks", "Context"] },
   { name: "Next.js", category: "technologies", tags: ["App Router"] },
-  { name: "Tailwind CSS", category: "technologies", tags:["styles"] },
-  { name: "Flutter", category: "technologies", tags:["web", "windows", "mac", "mobile", "app", "frontend"] },
-  { name: "Dart", category: "technologies", tags:["web", "windows", "mac", "mobile", "app", "frontend"] },
-  { name: "Laravel", category: "technologies", tags:["monolithic", "frontend", "backend", "PHP"] },
-  { name: "Node.js", category: "technologies", tags:["languages", "frontend", "backend"] },
-  { name: "Spring Boot", category: "technologies", tags:["web", "API", "APIREST", "backend"] },
-  { name: "Bootstrap", category: "technologies", tags:["styles", "style"] },
+  { name: "Symfony", category: "technologies", tags: ["monolithic", "frontend", "backend", "PHP"] },
+  { name: "Tailwind CSS", category: "technologies", tags: ["styles"] },
+  { name: "Flutter", category: "technologies", tags: ["web", "windows", "mac", "mobile", "app", "frontend"] },
+  { name: "Dart", category: "technologies", tags: ["web", "windows", "mac", "mobile", "app", "frontend"] },
+  { name: "Laravel", category: "technologies", tags: ["monolithic", "frontend", "backend", "PHP"] },
+  { name: "Node.js", category: "technologies", tags: ["languages", "frontend", "backend"] },
+  { name: "Spring Boot", category: "technologies", tags: ["web", "API", "APIREST", "backend"] },
+  { name: "Bootstrap", category: "technologies", tags: ["styles", "style"] },
 
   // Databases
-  { name: "MySQL", category: "databases" }, 
+  { name: "MySQL", category: "databases" },
   { name: "PostgreSQL", category: "databases" },
   { name: "SQLite", category: "databases" },
   { name: "MongoDB", category: "databases" },
@@ -56,7 +57,7 @@ const SKILLS: Skill[] = [
 ];
 
 export function TechSection() {
-  const { t } = useLanguage(); 
+  const { t } = useLanguage();
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<CategoryKey | "all">("all");
   const [sort, setSort] = useState<"level" | "alpha">("level");
@@ -91,7 +92,7 @@ export function TechSection() {
           <Input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder={t.tech.searchPlaceholder} 
+            placeholder={t.tech.searchPlaceholder}
             className="w-72 bg-white hover:shadow-amber-50 text-black"
             aria-label="Search technologies"
           />
@@ -121,7 +122,7 @@ export function TechSection() {
             onClick={() => setCategory("all")}
           >
             {/* Aquí podrías usar t.tech.categories.all si lo añades al contexto, o dejarlo fijo si "All" es universal */}
-            All 
+            All
           </Badge>
           {CATEGORY_KEYS.map((k) => (
             <Badge
