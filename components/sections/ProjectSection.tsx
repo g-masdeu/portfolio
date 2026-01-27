@@ -57,6 +57,7 @@ const getProjects = (lang: "en" | "es"): Project[] => {
       tech: [".dart", "Flutter"],
       image: "/quiz.png",
       github: "https://github.com/g-masdeu/QuizGame",
+      link: "http://213.199.55.138:8082/",
       year: 2025,
     },
     {
